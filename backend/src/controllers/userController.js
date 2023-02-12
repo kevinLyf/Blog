@@ -42,7 +42,7 @@ export const login = async (req, res) => {
         .json({ message: 'Email and password are required' });
     }
 
-    const user = await findUserByEmail({ email: email }).select('+password');
+    const user = await findUserByEmail({ email: email }).select('+password').select('+isAdmin');
 
     if (!user) {
       return res.status(400).json({ message: 'Email or password incorrect' });
@@ -56,10 +56,10 @@ export const login = async (req, res) => {
 
     const payload = {
       name: user.name,
-      isAdmin: user.isAdmin,
+      isAdmin: user.isAdmin
     };
 
-    const token = jwt.sign(payload, process.env.JWT_SECRET);
+    const token = await jwt.sign(payload, process.env.JWT_SECRET);
 
     res.status(200).json({ message: 'Logged', token: token });
   } catch (err) {

@@ -8,7 +8,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../contexts/auth';
 import { useEffect } from 'react';
 
-const Login = () => {
+const Register = () => {
   const ref = useRef();
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
@@ -19,10 +19,11 @@ const Login = () => {
     }
   }, [])
 
-  const handleLogin = async (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
 
     const user = ref.current;
+    const name = user.name.value;
     const email = user.email.value;
     const password = user.password.value;
 
@@ -31,14 +32,14 @@ const Login = () => {
     }
 
     await api
-      .post('/auth/login', {
+      .post('/auth/register', {
+        name: name,
         email: email,
         password: password,
       })
-      .then((res) => {
-        localStorage.setItem('token', res.data.token);
-        toast.success('Logged!');
-        return navigate('/');
+      .then(() => {
+        toast.success('Registered!');
+        return navigate('/login');
       })
       .catch((err) => {
         return toast.error('Email or password incorrect');
@@ -49,15 +50,16 @@ const Login = () => {
     <>
       <Header />
       <Container>
-        <Form ref={ref} onSubmit={handleLogin}>
-          <Title>LOGIN</Title>
+        <Form ref={ref} onSubmit={handleRegister}>
+          <Title>Sign up</Title>
+          <Input placeholder="Name" name="name" type="text" />
           <Input placeholder="Email" name="email" type="email" />
           <Input placeholder="Password" name="password" type="password" />
-          <ButtonSubmit type="submit">Login</ButtonSubmit>
+          <ButtonSubmit type="submit">Sign up</ButtonSubmit>
         </Form>
       </Container>
     </>
   );
 };
 
-export default Login;
+export default Register;
