@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const Global = createGlobalStyle`
     * {
@@ -15,6 +15,8 @@ const Global = createGlobalStyle`
         min-height: 100vh;
         background-color: #f8f8f8;
     }
+
+ 
 `;
 
 export default Global;

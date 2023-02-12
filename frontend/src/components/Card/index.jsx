@@ -1,15 +1,17 @@
+import { Link } from 'react-router-dom';
 import {
   CardBox,
   CardDescription,
   CardExtraInformation,
   CardImage,
   CardInformation,
+  CardLink,
   CardTag,
   CardTime,
   CardTitle,
 } from './style';
 
-const Card = ({ id, title, tag, description, createAt, banner  }) => {
+const Card = ({ id, title, tag, description, createAt, banner }) => {
   return (
     <CardBox key={id}>
       <CardImage src={banner} />
@@ -19,9 +21,10 @@ const Card = ({ id, title, tag, description, createAt, banner  }) => {
           <CardTime>{createAt}</CardTime>
         </CardExtraInformation>
         <CardTitle>{title}</CardTitle>
-        <CardDescription>
-        {description}
-        </CardDescription>
+        <CardDescription>{description}</CardDescription>
+        <CardLink>
+          <Link to={`/post/${id}`}>READ MORE</Link>
+        </CardLink>
       </CardInformation>
     </CardBox>
   );

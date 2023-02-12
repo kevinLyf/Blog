@@ -1,4 +1,8 @@
-import { create, getAllPosts } from '../services/postService.js';
+import {
+  create,
+  getAllPosts,
+  getOnePostById,
+} from '../services/postService.js';
 
 export const createPost = async (req, res) => {
   try {
@@ -41,6 +45,21 @@ export const createPost = async (req, res) => {
 export const GetAll = async (req, res) => {
   try {
     const posts = await getAllPosts();
+
+    res.status(200).json({ posts });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+export const findOneById = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const posts = await getOnePostById(id);
+
+    if (!posts) {
+      return res.status(200).json({ message: 'This post does not exist' });
+    }
 
     res.status(200).json({ posts });
   } catch (err) {

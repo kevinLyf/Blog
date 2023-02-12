@@ -3,6 +3,7 @@ import Card from '../../components/Card';
 import { Container, Main, BoxWrap } from './style';
 import { ClipLoader } from 'react-spinners';
 import api from '../../services/api';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -16,7 +17,6 @@ const Home = () => {
       } catch (err) {
         console.log(err.message);
       }
-      console.log(posts);
       setLoading(false);
     };
     fetchData();
@@ -30,9 +30,9 @@ const Home = () => {
       description={post.description}
       banner={post.banner}
       createAt={post.createAt}
+      id={post._id}
     />
   ));
-
 
   return (
     <Container>

@@ -19,9 +19,9 @@ export const CardImage = styled.img`
 export const CardInformation = styled.div`
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
+  gap: 12px;
   flex-direction: column;
-  padding: 1.2rem 1rem;
+  padding: .8rem 1rem;
 `;
 
 export const CardTime = styled.span`
@@ -61,4 +61,14 @@ export const CardDescription = styled.p`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 5; /* start showing ellipsis when 3rd line is reached */
   white-space: pre-wrap;
+`;
+
+export const CardLink = styled.div`
+
+  a{
+    color: #f55050;
+    text-transform: uppercase;
+    letter-spacing: .02rem;
+    font-weight: 500;
+  }
 `;
