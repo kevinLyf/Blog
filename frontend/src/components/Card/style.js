@@ -5,6 +5,7 @@ export const CardBox = styled.div`
   height: 560px;
   background-color: #fff;
   border-radius: 5px;
+  position: relative;
 `;
 
 export const CardImage = styled.img`
@@ -64,7 +65,8 @@ export const CardDescription = styled.p`
 `;
 
 export const CardLink = styled.div`
-
+position: absolute;
+bottom: 10px;
   a{
     color: #f55050;
     text-transform: uppercase;

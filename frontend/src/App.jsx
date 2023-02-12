@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 import Global from './styles/global';
 import Home from './pages/Home';
@@ -8,6 +9,8 @@ import Post from './pages/Post';
 import Login from './pages/Login';
 import { AuthProvider } from './contexts/auth';
 import Register from './pages/Register';
+import Create from './pages/Create';
+import { AdminProvider } from './contexts/admin';
 
 function App() {
   return (
@@ -17,6 +20,7 @@ function App() {
         <Route exact path="/post/:id" element={<AuthProvider children={<Post />} />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
+        <Route exact path="/create" element={<AdminProvider children={<Create />} />} />
       </Routes>
       <ToastContainer
         autoClose={2000}

@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Container, Main, BoxWrap } from './style';
 import { ClipLoader } from 'react-spinners';
+import { useContext } from 'react';
+
+import Header from '../../components/Header';
+import { AuthContext } from '../../contexts/auth';
 import Card from '../../components/Card';
 import api from '../../services/api';
-import { useContext } from 'react';
-import { AuthContext } from '../../contexts/auth';
-import Header from '../../components/Header';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -61,6 +63,5 @@ const HeaderChoice = () => {
     return <Header displayAuth={'block'} displayAdmin={'none'} />;
   }
 };
-
 
 export default Home;

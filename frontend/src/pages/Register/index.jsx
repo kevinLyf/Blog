@@ -38,7 +38,7 @@ const Register = () => {
       .then((res) => {
         localStorage.setItem('token', res.data.token);
         toast.success('Registered!');
-        return navigate('/');
+        return navigate('/login');
       })
       .catch((err) => {
         return toast.error('Email already exists');
