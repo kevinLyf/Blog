@@ -10,7 +10,7 @@ import {
 } from './style';
 import { FaFire } from 'react-icons/fa';
 
-const Header = ({ displayAuth }) => {
+const Header = ({ displayAuth, displayAdmin }) => {
   const handleLogout = () => {
     localStorage.removeItem('token');
     return window.location.reload();
@@ -35,6 +35,13 @@ const Header = ({ displayAuth }) => {
               <ButtonRegister display={displayAuth}>Sign up</ButtonRegister>
             </Link>
           </Li>
+          <Link to="/create">
+            <ButtonRegister
+              display={displayAdmin}
+            >
+              Create
+            </ButtonRegister>
+          </Link>
 
           <Li>
             <ButtonRegister

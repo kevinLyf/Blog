@@ -35,6 +35,7 @@ export const PostExtraInfomation = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  gap: 1rem;
   margin: 0.7rem 0rem;
 `;
 

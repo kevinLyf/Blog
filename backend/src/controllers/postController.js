@@ -3,8 +3,13 @@ import {
   getAllPosts,
   getOnePostById,
 } from '../services/postService.js';
+import jwt from 'jsonwebtoken';
+import { findUserByEmail } from '../services/userService.js';
 
 export const createPost = async (req, res) => {
+  const authHeader = req.headers['x-access-token'];
+  const token = authHeader && authHeader.split(' ')[1];
+
   try {
     const { title, description, text, tag, banner } = req.body;
 
@@ -14,10 +19,15 @@ export const createPost = async (req, res) => {
       });
     }
 
+    const email = jwt.decode(token).email;
+
+    const user = await findUserByEmail({ email: email });
+
     function addZero(numero) {
       if (numero <= 9) return '0' + numero;
       else return numero;
     }
+
     let date = new Date();
     let FormatedDate =
       addZero(date.getDate().toString()) +
@@ -25,6 +35,7 @@ export const createPost = async (req, res) => {
       addZero(date.getMonth() + 1).toString() +
       '•' +
       date.getFullYear();
+
     const body = {
       title,
       description,
@@ -32,6 +43,7 @@ export const createPost = async (req, res) => {
       tag,
       banner,
       createAt: FormatedDate,
+      author: user.name,
     };
 
     const post = await create(body);

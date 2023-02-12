@@ -6,7 +6,8 @@ const postSchema = new mongoose.Schema({
   text: { type: String, required: true },
   tag: { type: String, required: true },
   createAt: { type: String, required: true },
-  banner: { type: String || File, required: true },
+  banner: { type: String, required: true },
+  author: { type: String, required: true },
 });
 
 const Post = mongoose.model('Posts', postSchema);

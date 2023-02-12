@@ -4,8 +4,6 @@ import { toast } from 'react-toastify';
 import { useRef } from 'react';
 import api from '../../services/api';
 import Header from '../../components/Header';
-import { useContext } from 'react';
-import { AuthContext } from '../../contexts/auth';
 import { useEffect } from 'react';
 
 const Register = () => {
@@ -37,18 +35,19 @@ const Register = () => {
         email: email,
         password: password,
       })
-      .then(() => {
+      .then((res) => {
+        localStorage.setItem('token', res.data.token);
         toast.success('Registered!');
-        return navigate('/login');
+        return navigate('/');
       })
       .catch((err) => {
-        return toast.error('Email or password incorrect');
+        return toast.error('Email already exists');
       });
   };
 
   return (
     <>
-      <Header />
+     <Header displayAuth={'block'} displayAdmin={'none'} />
       <Container>
         <Form ref={ref} onSubmit={handleRegister}>
           <Title>Sign up</Title>

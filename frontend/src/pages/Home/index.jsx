@@ -10,7 +10,6 @@ import Header from '../../components/Header';
 const Home = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { isAuth } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,8 +38,7 @@ const Home = () => {
 
   return (
     <>
-      {isAuth && <Header displayAuth={'none'} />}
-      {!isAuth && <Header />}
+      {<HeaderChoice />}
       <Container>
         <Main>
           <BoxWrap>
@@ -52,5 +50,17 @@ const Home = () => {
     </>
   );
 };
+
+const HeaderChoice = () => {
+  const { isAuth, isAdmin } = useContext(AuthContext);
+  if (isAdmin && isAuth) {
+    return <Header displayAuth={'none'} displayAdmin={'block'} />;
+  } else if (isAuth && !isAdmin) {
+    return <Header displayAuth={'none'} displayAdmin={'none'} />;
+  } else {
+    return <Header displayAuth={'block'} displayAdmin={'none'} />;
+  }
+};
+
 
 export default Home;

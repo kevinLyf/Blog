@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 
-export const AuthContext = createContext({isAuth: Boolean, isAdmin: Boolean});
+export const AuthContext = createContext({ isAuth: Boolean, isAdmin: Boolean });
 
 export const AuthProvider = ({ children }) => {
   const token = localStorage.getItem('token');

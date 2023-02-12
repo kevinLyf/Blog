@@ -47,7 +47,7 @@ const Login = () => {
 
   return (
     <>
-      <Header />
+      <Header displayAuth={'block'} displayAdmin={'none'} />
       <Container>
         <Form ref={ref} onSubmit={handleLogin}>
           <Title>LOGIN</Title>
