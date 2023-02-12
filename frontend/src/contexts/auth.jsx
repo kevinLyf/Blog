@@ -51,9 +51,6 @@ export const AuthProvider = ({ children }) => {
       });
   }, [token]);
 
-  console.log(`Auth: ${isAuth}`);
-  console.log(`Admin: ${isAdmin}`);
-
   return (
     <AuthContext.Provider value={{ isAuth: isAuth, isAdmin: isAdmin }}>
       {children}

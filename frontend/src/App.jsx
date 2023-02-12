@@ -14,7 +14,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<AuthProvider children={<Home />} />} />
-        <Route exact path="/post/:id" element={<Post />} />
+        <Route exact path="/post/:id" element={<AuthProvider children={<Post />} />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
       </Routes>
