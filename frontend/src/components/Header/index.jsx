@@ -36,11 +36,7 @@ const Header = ({ displayAuth, displayAdmin }) => {
             </Link>
           </Li>
           <Link to="/create">
-            <ButtonRegister
-              display={displayAdmin}
-            >
-              Create
-            </ButtonRegister>
+            <ButtonRegister display={displayAdmin}>Create</ButtonRegister>
           </Link>
 
           <Li>

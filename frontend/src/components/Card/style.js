@@ -22,7 +22,7 @@ export const CardInformation = styled.div`
   align-items: flex-start;
   gap: 12px;
   flex-direction: column;
-  padding: .8rem 1rem;
+  padding: 0.8rem 1rem;
 `;
 
 export const CardTime = styled.span`
@@ -65,12 +65,12 @@ export const CardDescription = styled.p`
 `;
 
 export const CardLink = styled.div`
-position: absolute;
-bottom: 10px;
-  a{
+  position: absolute;
+  bottom: 15px;
+  a {
     color: #f55050;
     text-transform: uppercase;
-    letter-spacing: .02rem;
+    letter-spacing: 0.02rem;
     font-weight: 500;
   }
 `;

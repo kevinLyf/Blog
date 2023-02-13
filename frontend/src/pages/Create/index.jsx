@@ -61,9 +61,7 @@ const Create = () => {
           <TextArea placeholder="Text" name="text" />
           <Input placeholder="Tag" name="tag" type="text" />
           <Input placeholder="Banner (url)" name="banner" type="text" />
-          <Button>
-            Create
-          </Button>
+          <Button>Create</Button>
         </Form>
       </Container>
     </>

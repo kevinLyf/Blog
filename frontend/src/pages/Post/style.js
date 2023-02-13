@@ -18,7 +18,7 @@ export const Image = styled.img`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-top: 1rem;
+  padding: 1rem 0;
 `;
 
 export const PostContainer = styled.div`
@@ -73,7 +73,7 @@ export const Text = styled.p`
   margin-top: 1rem;
   font-size: 14pt;
   color: #585858;
-
+  text-align: justify;
   @media (max-width: 855px) {
     font-size: 15pt;
   }

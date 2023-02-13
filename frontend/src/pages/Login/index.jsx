@@ -1,23 +1,23 @@
 import { ButtonSubmit, Container, Form, Input, Title } from './style';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import api from '../../services/api';
 import Header from '../../components/Header';
-import { useContext } from 'react';
-import { AuthContext } from '../../contexts/auth';
 import { useEffect } from 'react';
+import { ScaleLoader } from 'react-spinners';
 
 const Login = () => {
   const ref = useRef();
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if(token) {
-      return navigate('/')
+    if (token) {
+      return navigate('/');
     }
-  }, [])
+  }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -30,19 +30,19 @@ const Login = () => {
       return toast.error('Fill in all fields');
     }
 
-    await api
-      .post('/auth/login', {
+    setIsLoading(true);
+    try {
+      const res = await api.post('/auth/login', {
         email: email,
         password: password,
-      })
-      .then((res) => {
-        localStorage.setItem('token', res.data.token);
-        toast.success('Logged!');
-        return navigate('/');
-      })
-      .catch((err) => {
-        return toast.error('Email or password incorrect');
       });
+      localStorage.setItem('token', res.data.token);
+      toast.success('Logged!');
+      return navigate('/');
+    } catch (err) {
+      setIsLoading(false);
+      return toast.error('Email or password incorrect');
+    }
   };
 
   return (
@@ -53,7 +53,18 @@ const Login = () => {
           <Title>LOGIN</Title>
           <Input placeholder="Email" name="email" type="email" />
           <Input placeholder="Password" name="password" type="password" />
-          <ButtonSubmit type="submit">Login</ButtonSubmit>
+          <ButtonSubmit type="submit" disabled={isLoading ? true : false}>
+            {isLoading ? (
+              <ScaleLoader
+                color="#fff"
+                speedMultiplier={0.7}
+                width={6}
+                height={8}
+              />
+            ) : (
+              'Login'
+            )}
+          </ButtonSubmit>
         </Form>
       </Container>
     </>

@@ -6,7 +6,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: .5rem;
+  padding: 0.5rem;
 `;
 
 export const Form = styled.form`
@@ -29,6 +29,9 @@ export const Input = styled.input`
 `;
 
 export const ButtonSubmit = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 3rem;
   background-color: #f55050;
@@ -41,6 +44,11 @@ export const ButtonSubmit = styled.button`
   &:hover {
     transition: all 0.2s ease;
     background-color: #e05050;
+  }
+
+  &:disabled {
+    transition: all 0.2s ease;
+    background-color: #F17A7A;
   }
 `;
 

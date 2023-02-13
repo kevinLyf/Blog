@@ -19,6 +19,7 @@ export const HeaderBar = styled.header`
   width: 100%;
   height: 4rem;
   background-color: #fff;
+  z-index: 20;
   position: sticky;
   top: 0;
 `;

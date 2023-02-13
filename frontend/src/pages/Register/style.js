@@ -42,6 +42,11 @@ export const ButtonSubmit = styled.button`
     transition: all 0.2s ease;
     background-color: #e05050;
   }
+
+  &:disabled {
+    transition: all 0.2s ease;
+    background-color: #F17A7A;
+  }
 `;
 
 export const Title = styled.h3`

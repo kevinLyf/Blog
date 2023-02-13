@@ -28,6 +28,7 @@ function App() {
         theme="colored"
         pauseOnHover={false}
         position="bottom-right"
+        limit={1}
       />
       <Global />
     </BrowserRouter>

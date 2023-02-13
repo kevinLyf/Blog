@@ -60,6 +60,7 @@ export const Button = styled.button`
     font-size: 15pt;
     font-weight: 600;
     background-color: #f55050;
+    margin-top: 1rem;
     cursor: pointer;
 
     &:hover {

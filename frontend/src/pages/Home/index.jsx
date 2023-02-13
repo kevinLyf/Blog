@@ -7,7 +7,6 @@ import Header from '../../components/Header';
 import { AuthContext } from '../../contexts/auth';
 import Card from '../../components/Card';
 import api from '../../services/api';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -40,7 +39,7 @@ const Home = () => {
 
   return (
     <>
-      {<HeaderChoice />}
+      <HeaderChoice />
       <Container>
         <Main>
           <BoxWrap>
