@@ -15,7 +15,7 @@ export const Main = styled.main`
 export const BoxWrap = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   gap: 2rem;
   align-items: center;
   width: 100%;

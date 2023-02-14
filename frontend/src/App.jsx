@@ -7,9 +7,9 @@ import Global from './styles/global';
 import Home from './pages/Home';
 import Post from './pages/Post';
 import Login from './pages/Login';
-import { AuthProvider } from './contexts/auth';
-import Register from './pages/Register';
 import Create from './pages/Create';
+import Register from './pages/Register';
+import { AuthProvider } from './contexts/auth';
 import { AdminProvider } from './contexts/admin';
 
 function App() {

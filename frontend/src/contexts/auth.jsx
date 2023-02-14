@@ -1,6 +1,5 @@
 import jwtDecode from 'jwt-decode';
 import { createContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 
 export const AuthContext = createContext({ isAuth: Boolean, isAdmin: Boolean });
@@ -12,7 +11,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchingApi = async () => {
-      if (!token || token === '') {
+      if (!token) {
         return false;
       }
 
@@ -25,6 +24,7 @@ export const AuthProvider = ({ children }) => {
 
         return true;
       } catch (err) {
+        console.log(err)
         return false;
       }
     };

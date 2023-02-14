@@ -11,6 +11,7 @@ export const CardBox = styled.div`
 export const CardImage = styled.img`
   width: 100%;
   height: 230px;
+  min-height: 190px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

@@ -38,7 +38,6 @@ const Register = () => {
         email: email,
         password: password,
       });
-      localStorage.setItem('token', res.data.token);
       toast.success('Registered!');
       return navigate('/login');
     } catch (err) {
