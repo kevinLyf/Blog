@@ -75,3 +75,19 @@ export const CardLink = styled.div`
     font-weight: 500;
   }
 `;
+
+export const CardAdminTools = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+  bottom: 15px;
+  right: 1rem;
+`;
+
+export const ButtonAdmin = styled.button`
+  font-size: 12pt;
+  background-color: transparent;
+  cursor: pointer;
+
+`;

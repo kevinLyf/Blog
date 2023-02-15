@@ -1,5 +1,6 @@
 import {
   create,
+  deletePostById,
   getAllPosts,
   getOnePostById,
 } from '../services/postService.js';
@@ -78,3 +79,20 @@ export const findOneById = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+export const deletePost = async(req, res) => {
+  try {
+    const { id } = req.params;
+
+    if(!id) {
+      res.status(400).json({ message: 'Id is required' })
+    }
+
+    await deletePostById(id);
+
+    res.status(200).json({ message: 'Post deleted' })
+
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+}

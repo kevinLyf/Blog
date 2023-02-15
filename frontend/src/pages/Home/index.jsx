@@ -11,6 +11,7 @@ import api from '../../services/api';
 const Home = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { isAdmin } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,7 +24,7 @@ const Home = () => {
       setLoading(false);
     };
     fetchData();
-  }, [loading]);
+  }, [posts]);
 
   const usePosts = posts.map((post) => (
     <Card
@@ -34,6 +35,7 @@ const Home = () => {
       banner={post.banner}
       createAt={post.createAt}
       id={post._id}
+      isAdmin={isAdmin}
     />
   ));
 
